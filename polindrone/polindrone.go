@@ -2,17 +2,20 @@ package main
 
 import "fmt"
 
-func polindrone(text string) {
-	letters := []rune(text)
+func polindrone(text string) string {
+	return text + Reverse(text[:len(text)-1])
+}
 
-	for len(letters) == 0 {
-
+func Reverse(s string) (result string) {
+	for _, v := range s {
+		result = string(v) + result
 	}
+	return
 }
 
 func main() {
 
 	var text string
 	fmt.Scan(&text)
-	polindrone(text)
+	fmt.Println(polindrone(text))
 }
