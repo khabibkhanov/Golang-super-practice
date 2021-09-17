@@ -1,26 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func duplicate() {
-	numbers := [...]int{1, 2, 2, 2, 5, 6, 7, 8, 9, 45}
-
-	for _, v := range numbers {
-		if has(numbers, v) >= 2 {
-			fmt.Println("Has Duplicates")
-			break
+	numbers := []int{9, 5, 13, 2, 4, 6, 7, 8, 1, 3}
+	sort.Ints(numbers)
+	for i := 0; i < len(numbers); i++ {
+		if i != len(numbers)-1 {
+			if numbers[i] == numbers[i+1] {
+				fmt.Println("Has Duplicates")
+				break
+			}
 		}
-	}
 
-}
-func has(array [10]int, number int) int {
-	i := 0
-	for _, v := range array {
-		if number == v {
-			i++
-		}
 	}
-	return i
 }
 
 func main() {
